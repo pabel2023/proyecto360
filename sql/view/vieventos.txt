@@ -1,0 +1,8 @@
+CREATE VIEW 
+vieventos AS 
+select upper( eventos.nombre) as nombre , itemcorum.id_evento as codigo, sum(porcentage+0.0) corum
+from itemcorum 
+left join eventos on eventos.codigo= itemcorum.id_evento 
+where itemcorum.estado="A"
+group by eventos.id ,itemcorum.id_evento
+order by itemcorum.id_evento

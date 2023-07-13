@@ -20,7 +20,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar Categorias
+      Administrar Testaction
     
     </h1>
 
@@ -28,7 +28,7 @@ if($_SESSION["perfil"] == "Vendedor"){
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar Categorias</li>
+      <li class="active">Administrar Testaction</li>
     
     </ol>
 
@@ -40,9 +40,9 @@ if($_SESSION["perfil"] == "Vendedor"){
 
       <div class="box-header with-border">
   
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarTestaction">
           
-          Agregar Categorias
+          Agregar Testaction
 
         </button>
 
@@ -57,7 +57,9 @@ if($_SESSION["perfil"] == "Vendedor"){
          <tr>
            
            <th style="width:10px">#</th>
-           <th>categoria</th>
+           <th>id_evento</th>
+           <th>id_text</th>
+           <th>id_test_opcion</th>
            <th>Acciones</th>
 
          </tr> 
@@ -71,25 +73,27 @@ if($_SESSION["perfil"] == "Vendedor"){
           $item = null;
           $valor = null;
 
-          $Categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+          $testaction = ControladorTestaction::ctrMostrarTestaction($item, $valor);
 
-          foreach ($Categorias as $key => $value) {
+          foreach ($testaction as $key => $value) {
            
             echo ' <tr>
 
                     <td>'.($key+1).'</td>
 
-                    <td class="text-uppercase">'.$value["categoria"].'</td>
+                    <td class="text-uppercase">'.$value["id_evento"].'</td>
+                    <td class="text-uppercase">'.$value["id_text"].'</td>
+                    <td class="text-uppercase">'.$value["id_test_opcion"].'</td>
 
                     <td>
 
                       <div class="btn-group">
                           
-                        <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>';
+                        <button class="btn btn-warning btnEditarTestaction" idTestaction="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarTestaction"><i class="fa fa-pencil"></i></button>';
 
                         if($_SESSION["perfil"] == "Administrador"){
 
-                          echo '<button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                          echo '<button class="btn btn-danger btnEliminarTestaction" idTestaction="'.$value["id"].'"><i class="fa fa-times"></i></button>';
 
                         }
 
@@ -115,10 +119,10 @@ if($_SESSION["perfil"] == "Vendedor"){
 </div>
 
 <!--=====================================
-MODAL AGREGAR CATEGORIAS
+MODAL AGREGAR TESTACTION
 ======================================-->
 
-<div id="modalAgregarCategorias" class="modal fade" role="dialog">
+<div id="modalAgregarTestaction" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
@@ -134,7 +138,7 @@ MODAL AGREGAR CATEGORIAS
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Categorias</h4>
+          <h4 class="modal-title">Agregar Testaction</h4>
 
         </div>
 
@@ -146,8 +150,7 @@ MODAL AGREGAR CATEGORIAS
 
           <div class="box-body">
 
-        
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- ENTRADA PARA EL ID_EVENTO -->
             
             <div class="form-group">
               
@@ -155,12 +158,37 @@ MODAL AGREGAR CATEGORIAS
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Ingresar categoría" required>
+                <input type="number" min="0"  class="form-control input-lg" name="nuevaid_evento" placeholder="Ingresar id_evento" >
 
               </div>
 
             </div>
+            <!-- ENTRADA PARA EL id_textT -->
             
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="number" min="0"  class="form-control input-lg" name="nuevaid_text" placeholder="Ingresar id_text" >
+
+              </div>
+
+            </div>
+            <!-- ENTRADA PARA EL ID_TEST_OPCION -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="number" min="0"  class="form-control input-lg" name="nuevaid_test_opcion" placeholder="Ingresar id_test_opcion" >
+
+              </div>
+
+            </div>
   
           </div>
 
@@ -174,14 +202,14 @@ MODAL AGREGAR CATEGORIAS
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar categoría</button>
+          <button type="submit" class="btn btn-primary">Guardar Testaction</button>
 
         </div>
 
         <?php
 
-          $crearCategoria = new ControladorCategorias();
-          $crearCategoria -> ctrCrearCategoria();
+          $crearTestaction = new ControladorTestaction();
+          $crearTestaction -> ctrCrearTestaction();
 
         ?>
 
@@ -194,10 +222,10 @@ MODAL AGREGAR CATEGORIAS
 </div>
 
 <!--=====================================
-MODAL EDITAR CATEGORÍA
+MODAL EDITAR TESTACTION
 ======================================-->
 
-<div id="modalEditarCategoria" class="modal fade" role="dialog">
+<div id="modalEditarTestaction" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
@@ -213,7 +241,7 @@ MODAL EDITAR CATEGORÍA
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar Categoria</h4>
+          <h4 class="modal-title">Editar Testaction</h4>
 
         </div>
 
@@ -225,7 +253,7 @@ MODAL EDITAR CATEGORÍA
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- ENTRADA PARA EL ID_EVENTO -->
             
             <div class="form-group">
               
@@ -233,14 +261,40 @@ MODAL EDITAR CATEGORÍA
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarCategoria" id="editarCategoria" required>
+                <input type="number" min="0"  class="form-control input-lg" name="editarid_evento" id="editarid_evento" >
 
-                <input type="hidden"  name="idCategoria" id="idCategoria" required>
+                 <input type="hidden"  name="idTestaction" id="idTestaction" required>
 
               </div>
 
             </div>
+            <!-- ENTRADA PARA EL id_text -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
+                <input type="number" min="0"  class="form-control input-lg" name="editarid_text" id="editarid_text" >
+
+              </div>
+
+            </div>
+            <!-- ENTRADA PARA EL ID_TEST_OPCION -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="number" min="0"  class="form-control input-lg" name="editarid_test_opcion" id="editarid_test_opcion" >
+
+              </div>
+
+            </div>
+  
           </div>
 
         </div>
@@ -259,8 +313,8 @@ MODAL EDITAR CATEGORÍA
 
       <?php
 
-          $editarCategoria = new ControladorCategorias();
-          $editarCategoria -> ctrEditarCategoria();
+          $editarTestaction = new ControladorTestaction();
+          $editarTestaction -> ctrEditarTestaction();
 
         ?> 
 
@@ -274,8 +328,8 @@ MODAL EDITAR CATEGORÍA
 
 <?php
 
-  $borrarCategoria = new ControladorCategorias();
-  $borrarCategoria -> ctrBorrarCategoria();
+  $borrarTestaction = new ControladorTestaction();
+  $borrarTestaction -> ctrBorrarTestaction();
 
 ?>
 

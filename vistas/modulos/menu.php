@@ -45,7 +45,63 @@
 
 				</a>
 
-			</li>';
+			</li>
+			
+			<li>
+
+				<a href="categorias">
+
+					<i class="fa fa-users"></i>
+					<span>Categorias</span>
+
+				</a>
+
+			</li>
+			
+			<li>
+
+				<a href="test">
+
+					<i class="fa fa-users"></i>
+					<span>Test</span>
+
+				</a>
+
+			</li>
+
+			<li>
+
+				<a href="productos">
+
+					<i class="fa fa-users"></i>
+					<span>Productos</span>
+
+				</a>
+
+			</li>
+			
+			<li>
+
+			<a href="testopcion">
+
+				<i class="fa fa-users"></i>
+				<span>Testopcion</span>
+
+			</a>
+
+		</li>
+		
+		<li>
+
+			<a href="testaction">
+
+				<i class="fa fa-users"></i>
+				<span>Testaction</span>
+
+			</a>
+
+		</li>';
+
 
 		}
 		

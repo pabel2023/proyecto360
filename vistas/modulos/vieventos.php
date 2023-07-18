@@ -21,7 +21,8 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar Vieventos
+    Respuesta de Asamblea
+
     
     </h1>
 
@@ -188,11 +189,11 @@ PRODUCTOS MÁS VENDIDOS
          <tr>
            
            <th style="width:10px">#</th>
-           <th>nombre</th>
-           <th>codigo</th>
-           <th>coeficiente_inactivo</th>
-           <th>coeficiente_activo</th>
-           <th>coeficiente_total</th>
+           <th>Nombre</th>
+           <th>Codigo</th>
+           <th>Coeficiente inactivo</th>
+           <th>Coeficiente activo</th>
+           <th>Coeficiente total</th>
            <th>Acciones</th>
 
          </tr> 
@@ -294,7 +295,7 @@ MODAL VIEVENTOS
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user-circle-o"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarnombre" id="editarnombre" >
 
@@ -309,7 +310,7 @@ MODAL VIEVENTOS
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-unlock-alt"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarcodigo" id="editarcodigo" >
 
@@ -324,7 +325,7 @@ MODAL VIEVENTOS
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarcoeficiente_inactivo" id="editarcoeficiente_inactivo" required>
 
@@ -339,7 +340,7 @@ MODAL VIEVENTOS
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarcoeficiente_activo" id="editarcoeficiente_activo" required>
 
@@ -354,7 +355,7 @@ MODAL VIEVENTOS
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarcoeficiente_total" id="editarcoeficiente_total" >
 

@@ -20,7 +20,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar ItemCorum
+    Quórum
     
     </h1>
 
@@ -42,13 +42,13 @@ if($_SESSION["perfil"] == "Vendedor"){
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarItemCorum">
           
-          Agregar ItemCorum
+          Agregar Quórum
 
         </button>
 		
 		<button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarItemCorum2">
           
-          Cargar ItemCorum
+          Cargar Quórum
 
         </button>
 
@@ -66,14 +66,13 @@ if($_SESSION["perfil"] == "Vendedor"){
            
            <th style="width:10px">#</th>
            
-           <th>id_evento</th>
-           <th>nombre</th>
-           <th>tipo</th>
-           <th>porcentage</th>
-           <th>documento_encargado</th>
-           <th>nombre_encargado</th>
-           <th>estado</th>
-           
+           <th>Asamblea</th>
+           <th>Nombre</th>
+           <th>Tipo</th>
+           <th>Porcentaje</th>
+           <th>Documento encargado</th>
+           <th>Nombre encargado</th>
+           <th>Estado</th>
            <th>Acciones</th>
 
          </tr> 
@@ -158,7 +157,7 @@ MODAL AGREGAR ITEMCORUM 2
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar ItemCorum</h4>
+          <h4 class="modal-title">Agregar Quórum</h4>
 
         </div>
 		
@@ -235,7 +234,7 @@ MODAL AGREGAR ITEMCORUM
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar ItemCorum</h4>
+          <h4 class="modal-title">Agregar Quórum</h4>
 
         </div>
 
@@ -254,9 +253,9 @@ MODAL AGREGAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
-                <input type="text"    class="form-control input-lg" name="nuevaid_evento" placeholder="Ingresar id_evento" required>
+                <input type="text"    class="form-control input-lg" name="nuevaid_evento" placeholder="Ingresar Asamblea" required>
 
               </div>
 
@@ -267,7 +266,7 @@ MODAL AGREGAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user-circle-o"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevanombre" placeholder="Ingresar nombre" >
 
@@ -293,7 +292,7 @@ MODAL AGREGAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-pie-chart"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevaporcentage" placeholder="Ingresar porcentage" >
 
@@ -306,9 +305,9 @@ MODAL AGREGAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-file-o"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevadocumento_encargado" placeholder="Ingresar documento_encargado" >
+                <input type="text" class="form-control input-lg" name="nuevadocumento_encargado" placeholder="Ingresar documento encargado" >
 
               </div>
 
@@ -319,9 +318,9 @@ MODAL AGREGAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-street-view"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevanombre_encargado" placeholder="Ingresar nombre_encargado" >
+                <input type="text" class="form-control input-lg" name="nuevanombre_encargado" placeholder="Ingresar nombre encargado" >
 
               </div>
 
@@ -332,7 +331,7 @@ MODAL AGREGAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-refresh"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevaestado" placeholder="Ingresar estado" >
 
@@ -353,7 +352,7 @@ MODAL AGREGAR ITEMCORUM
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar ItemCorum</button>
+          <button type="submit" class="btn btn-primary">Guardar Quórum</button>
 
         </div>
 
@@ -392,7 +391,7 @@ MODAL EDITAR ITEMCORUM
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar ItemCorum</h4>
+          <h4 class="modal-title">Editar Quórum</h4>
 
         </div>
 
@@ -411,7 +410,7 @@ MODAL EDITAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
                 <input type="text"   class="form-control input-lg" name="editarid_evento" id="editarid_evento" required>
 
@@ -426,7 +425,7 @@ MODAL EDITAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user-circle-o"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarnombre" id="editarnombre" >
 
@@ -456,7 +455,7 @@ MODAL EDITAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-pie-chart"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarporcentage" id="editarporcentage" >
 
@@ -471,7 +470,7 @@ MODAL EDITAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-file-o"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editardocumento_encargado" id="editardocumento_encargado" >
 
@@ -486,7 +485,7 @@ MODAL EDITAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-street-view"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarnombre_encargado" id="editarnombre_encargado" >
 
@@ -501,7 +500,7 @@ MODAL EDITAR ITEMCORUM
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-refresh"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarestado" id="editarestado" >
 

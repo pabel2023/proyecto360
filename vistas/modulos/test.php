@@ -20,7 +20,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar Test
+    Preguntas
     
     </h1>
 
@@ -28,7 +28,7 @@ if($_SESSION["perfil"] == "Vendedor"){
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar test</li>
+      <li class="active">Preguntas</li>
     
     </ol>
 
@@ -42,7 +42,8 @@ if($_SESSION["perfil"] == "Vendedor"){
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarTest">
           
-          Agregar test
+          Agregar Pregunta
+
 
         </button>
 
@@ -58,7 +59,7 @@ if($_SESSION["perfil"] == "Vendedor"){
            
            <th style="width:10px">#</th>
           
-           <th>id_evento</th>
+           <th>Asamblea</th>
            <th>texto</th>
            <th>tipo</th>
            <th>estado</th>
@@ -143,7 +144,7 @@ MODAL AGREGAR TEST
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Test</h4>
+          <h4 class="modal-title">Agregar Pregunta</h4>
 
         </div>
 
@@ -161,11 +162,11 @@ MODAL AGREGAR TEST
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
                 <select class="form-control input-lg" id="nuevaEvento" name="nuevaEvento" required>
                   
-                  <option value="">Selecionar Evento</option>
+                  <option value="">Selecionar Asamblea</option>
 
                   <?php
 
@@ -195,7 +196,7 @@ MODAL AGREGAR TEST
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-text-height"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevaTexto" placeholder="Ingresar texto" >
 
@@ -221,7 +222,7 @@ MODAL AGREGAR TEST
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-refresh"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevaEstado" placeholder="Ingresar estado" >
 
@@ -241,7 +242,7 @@ MODAL AGREGAR TEST
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Test</button>
+          <button type="submit" class="btn btn-primary">Guardar Pregunta</button>
 
         </div>
 
@@ -280,7 +281,7 @@ MODAL EDITAR TEST
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar Test</h4>
+          <h4 class="modal-title">Editar Pregunta</h4>
 
         </div>
 
@@ -291,18 +292,34 @@ MODAL EDITAR TEST
         <div class="modal-body">
 
           <div class="box-body">
+		  
+		  
 
-             <!-- ENTRADA PARA SELECCIONAR EVENTO -->
+        <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
 
-             <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
-                <select class="form-control input-lg"  name="editarEvento" readonly required>
+                <select class="form-control input-lg" id="editarEvento"  name="editarEvento"  required>
                   
-                  <option id="editarEvento"></option>
+                  <option id="editarEventoSelected"></option>
+				  
+				                   <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $eventos = ControladorEventos::ctrMostrarEventos($item, $valor);
+
+                  foreach ($eventos as $key => $value) {
+                    
+                    echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
+                  }
+
+                  ?>
 
                 </select>
 
@@ -310,31 +327,16 @@ MODAL EDITAR TEST
 
             </div>
 
-
-            <!-- ENTRADA PARA EL ID_EVENTO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="editarId_evento" id="editarId_evento" >
-
-                 <input type="hidden"  name="editarId" id="editarId" required>
-
-              </div>
-
-            </div>
             <!-- ENTRADA PARA EL TEXTO -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-text-height"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarTexto" id="editarTexto" >
+				<input type="hidden"  name="editarId" id="editarId" >
 
                
               </div>
@@ -360,7 +362,7 @@ MODAL EDITAR TEST
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-refresh"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarEstado" id="editarEstado" >
 

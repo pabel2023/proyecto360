@@ -10,11 +10,12 @@ class ModeloTestaction{
 
 	static public function mdlIngresarTestaction($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_evento, id_text, id_test_opcion) VALUES (:id_evento, :id_text, :id_test_opcion)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_evento, id_text, id_test_opcion, id_usuario) VALUES (:id_evento, :id_text, :id_test_opcion, :id_usuario)");
 
 		$stmt->bindParam(":id_evento", $datos["id_evento"], PDO::PARAM_INT);
 		$stmt->bindParam(":id_text", $datos["id_text"], PDO::PARAM_INT);
 		$stmt->bindParam(":id_test_opcion", $datos["id_test_opcion"], PDO::PARAM_INT);
+		$stmt->bindParam(":id_usuario", $datos["id_usuario"], PDO::PARAM_INT);
 
 		if($stmt->execute()){
 
@@ -69,12 +70,13 @@ class ModeloTestaction{
 
 	static public function mdlEditarTestaction($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET id_evento = :id_evento, id_text = :id_text, id_test_opcion = :id_test_opcion WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET id_evento = :id_evento, id_text = :id_text, id_test_opcion = :id_test_opcion, id_usuario = :id_usuario WHERE id = :id");
 
 		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
 		$stmt -> bindParam(":id_evento", $datos["id_evento"], PDO::PARAM_INT);
 		$stmt -> bindParam(":id_text", $datos["id_text"], PDO::PARAM_INT);
 		$stmt -> bindParam(":id_test_opcion", $datos["id_test_opcion"], PDO::PARAM_INT);
+		$stmt -> bindParam(":id_usuario", $datos["id_usuario"], PDO::PARAM_INT);
 
 		
 

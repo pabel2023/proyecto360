@@ -20,7 +20,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar Eventos
+    Asamblea
     
     </h1>
 
@@ -42,7 +42,7 @@ if($_SESSION["perfil"] == "Vendedor"){
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarEventos">
           
-          Agregar Eventos
+          Agregar Asamblea
 
         </button>
 		
@@ -59,11 +59,11 @@ if($_SESSION["perfil"] == "Vendedor"){
            <th style="width:10px">#</th>
           
            <th>nombre</th>
-		   <th>codigo</th>
-           <th>fecha_ini</th>
-           <th>fecha_fin</th>
-           <th>hora_ini</th>
-           <th>hora_fin</th>
+		       <th>codigo</th>
+           <th>fecha ini</th>
+           <th>fecha fin</th>
+           <th>hora ini</th>
+           <th>hora fin</th>
            <th>estado</th>
            <th>Acciones</th>
 
@@ -149,7 +149,7 @@ MODAL AGREGAR EVENTOS
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Eventos</h4>
+          <h4 class="modal-title">Agregar Asamblea</h4>
 
         </div>
 
@@ -168,7 +168,7 @@ MODAL AGREGAR EVENTOS
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user-circle-o"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevanombre" placeholder="Ingresar nombre" required>
 
@@ -182,9 +182,9 @@ MODAL AGREGAR EVENTOS
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevafecha_ini" placeholder="Ingresar fecha inicio"  data-inputmask="'alias': 'yyyy/mm/dd'" data-mask >
+                <input type="text" class="form-control input-lg" name="nuevafecha_ini" placeholder="Ingresar fecha inicio" require  data-inputmask="'alias': 'yyyy/mm/dd'" data-mask >
 				
 
               </div>			  
@@ -197,9 +197,9 @@ MODAL AGREGAR EVENTOS
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevafecha_fin" placeholder="Ingresar fecha finalizacion"  data-inputmask="'alias': 'yyyy-mm-dd'" data-mask >
+                <input type="text" class="form-control input-lg" name="nuevafecha_fin" placeholder="Ingresar fecha finalizacion"  data-inputmask="'alias': 'yyyy/mm/dd'" data-mask require>
 	
 
               </div>
@@ -211,7 +211,7 @@ MODAL AGREGAR EVENTOS
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-hourglass-start"></i></span> 
 
                 <input type="number" min="0"  class="form-control input-lg" name="nuevahora_ini" placeholder="Ingresar hora inicio" >
 
@@ -224,7 +224,7 @@ MODAL AGREGAR EVENTOS
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-hourglass-end"></i></span> 
 
                 <input type="number" min="0"  class="form-control input-lg" name="nuevahora_fin" placeholder="Ingresar hora finalizacion" >
 
@@ -245,7 +245,7 @@ MODAL AGREGAR EVENTOS
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Eventos</button>
+          <button type="submit" class="btn btn-primary">Guardar Asamblea</button>
 
         </div>
 
@@ -284,7 +284,7 @@ MODAL EDITAR EVENTOS
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar Eventos</h4>
+          <h4 class="modal-title">Editar Asamblea</h4>
 
         </div>
 
@@ -303,7 +303,7 @@ MODAL EDITAR EVENTOS
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user-circle-o"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarnombre" id="editarnombre" required>
 
@@ -313,13 +313,13 @@ MODAL EDITAR EVENTOS
 
             </div>
             
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- ENTRADA PARA fecha_ini -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarfecha_ini" id="editarfecha_ini" >
 
@@ -328,13 +328,13 @@ MODAL EDITAR EVENTOS
               </div>
 
             </div>
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- ENTRADA PARA EL fecha_fin -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-calendar-times-o"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarfecha_fin" id="editarfecha_fin" >
 
@@ -343,13 +343,13 @@ MODAL EDITAR EVENTOS
               </div>
 
             </div>
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- ENTRADA PARA hora_ini -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-hourglass-start"></i></span> 
 
                 <input type="number" min="0"  class="form-control input-lg" name="editarhora_ini" id="editarhora_ini" >
 
@@ -358,13 +358,13 @@ MODAL EDITAR EVENTOS
               </div>
 
             </div>
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- ENTRADA PARA hora_fin -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-hourglass-end"></i></span> 
 
                 <input type="number" min="0"  class="form-control input-lg" name="editarhora_fin" id="editarhora_fin" >
 
@@ -373,13 +373,13 @@ MODAL EDITAR EVENTOS
               </div>
 
             </div>
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- ENTRADA PARA estado -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-refresh"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="editarestado" id="editarestado" >
 
@@ -423,9 +423,6 @@ MODAL EDITAR EVENTOS
 
 </div>
 
-<!--=====================================
-MODAL EDITAR EVENTOS
-======================================-->
 
 <!--=====================================
 MODAL GRAFICO EVENTOS

@@ -28,93 +28,28 @@
 
 				</a>
 
-			</li>';
+			</li>
+			
+
+			';
 
 		}
 
 
 
-		if($_SESSION["perfil"] == "Administrador"){
-
-			echo '<li>
-
-				<a href="clientes">
-
-					<i class="fa fa-users"></i>
-					<span>Clientes</span>
-
-				</a>
-
-			</li>
-			
-			<li>
-
-				<a href="categorias">
-
-					<i class="fa fa-users"></i>
-					<span>Categorias</span>
-
-				</a>
-
-			</li>
-			
-			<li>
-
-				<a href="test">
-
-					<i class="fa fa-users"></i>
-					<span>Test</span>
-
-				</a>
-
-			</li>
-
-			<li>
-
-				<a href="productos">
-
-					<i class="fa fa-users"></i>
-					<span>Productos</span>
-
-				</a>
-
-			</li>
-			
-			<li>
-
-			<a href="testopcion">
-
-				<i class="fa fa-users"></i>
-				<span>Testopcion</span>
-
-			</a>
-
-		</li>
-		
-		<li>
-
-			<a href="testaction">
-
-				<i class="fa fa-users"></i>
-				<span>Testaction</span>
-
-			</a>
-
-		</li>';
-
-
-		}
+	
 		
 		
 		if($_SESSION["perfil"] == "Administrador"){
 
-			echo '<li class="treeview">
+			echo '
+			<li class="treeview">
 
 				<a href="#">
 
-					<i class="fa fa-list-ul"></i>
+					<i class="fa fa-calendar"></i>
 					
-					<span>Administrar Eventos</span>
+					<span>Asambleas</span>
 					
 					<span class="pull-right-container">
 					
@@ -130,9 +65,9 @@
 
 				<a href="eventos">
 
-					<i class="fa fa-calendar"></i>
-					<span>Eventos</span>
-
+					<i class="fa fa-building-o"></i>
+					<span>Asamblea</span>
+					
 				</a>
 				
 				</li>
@@ -141,8 +76,8 @@
 
 				<a href="itemcorum">
 
-					<i class="fa fa-calendar"></i>
-					<span>ItemCorum</span>
+					<i class="fa fa-users"></i>
+					<span>Quórum</span>
 
 				</a>
 				
@@ -152,8 +87,8 @@
 
 				<a href="vieventos">
 
-					<i class="fa fa-calendar"></i>
-					<span>Resumen Eventos</span>
+					<i class="fa fa-line-chart"></i>
+					<span>Resumen de votaciones</span>
 
 				</a>
 				
@@ -161,7 +96,67 @@
 				
 				</ul>
 
-			</li>';
+			</li>
+			
+			<li class="treeview">
+
+				<a href="#">
+
+					<i class="fa fa-question-circle-o"></i>
+					
+					<span>Cuestionarios</span>
+					
+					<span class="pull-right-container">
+					
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+				
+				<ul class="treeview-menu">
+				
+				<li>
+
+				<a href="test">
+
+					<i class="fa fa-file-text"></i>
+					<span>Preguntas</span>
+
+				</a>
+			
+				
+				</li>
+				
+				<li>
+
+				<a href="testopcion">
+
+				<i class="fa fa-server"></i>
+				<span>Respuestas</span>
+
+			</a>
+				
+				</li>
+				
+				<li>
+
+				<a href="testaction">
+
+				<i class="fa fa-cogs"></i>
+				<span>Votaciones</span>
+
+			</a>
+				
+				</li>
+				
+				</ul>
+
+			</li>
+			
+			
+			
+			';
 
 		}
 

@@ -7,12 +7,12 @@ class ControladorEventos{
 	=============================================*/
 
 	static public function ctrCrearEventos(){
-			echo("aqui!");
+		
 		if(isset($_POST["nuevanombre"])){
-echo("aqui!");
+
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevanombre"])){
 				
-				
+
 
 				$tabla = "eventos";
 
@@ -34,7 +34,7 @@ echo("aqui!");
 
 					swal({
 						  type: "success",
-						  title: " Eventos ha sido guardada correctamente",
+						  title: " La Asamblea ha sido guardada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -56,7 +56,7 @@ echo("aqui!");
 
 					swal({
 						  type: "error",
-						  title: "¡ Eventos no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡ El nombre no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -118,7 +118,7 @@ echo("aqui!");
 
 					swal({
 						  type: "success",
-						  title: " Eventos ha sido cambiada correctamente",
+						  title: " La Asamblea ha sido cambiada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -140,7 +140,7 @@ echo("aqui!");
 
 					swal({
 						  type: "error",
-						  title: "¡Eventos no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡El nombre no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -178,7 +178,7 @@ echo("aqui!");
 
 						swal({
 							  type: "success",
-							  title: "La Eventos ha sido borrada correctamente",
+							  title: "La Asamblea ha sido borrada correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){

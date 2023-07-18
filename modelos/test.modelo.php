@@ -16,9 +16,8 @@ class ModeloTest{
 		$stmt->bindParam(":texto", $datos["texto"], PDO::PARAM_STR);
 		$stmt->bindParam(":tipo", $datos["tipo"], PDO::PARAM_STR);
 		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
+
 		
-
-
 		if($stmt->execute()){
 
 			return "ok";

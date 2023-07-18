@@ -29,7 +29,7 @@ class ControladorTest{
 
 					swal({
 						  type: "success",
-						  title: " Test ha sido guardada correctamente",
+						  title: " La pregunta ha sido guardada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -51,7 +51,7 @@ class ControladorTest{
 
 					swal({
 						  type: "error",
-						  title: "¡ Test no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡ La pregunta no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -97,7 +97,7 @@ class ControladorTest{
 				$tabla = "test";
 
 				$datos = array("id"=>$_POST["editarId"],
-				"id_evento"=>$_POST["editarId_evento"],
+				"id_evento"=>$_POST["editarEvento"],
 				"texto"=>$_POST["editarTexto"],
 				"tipo"=>$_POST["editarTipo"],
 				"estado"=>$_POST["editarEstado"]
@@ -111,7 +111,7 @@ class ControladorTest{
 
 					swal({
 						  type: "success",
-						  title: " Test ha sido cambiada correctamente",
+						  title: " La pregunta ha sido cambiada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -133,7 +133,7 @@ class ControladorTest{
 
 					swal({
 						  type: "error",
-						  title: "¡Test no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡La pregunta no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -171,7 +171,7 @@ class ControladorTest{
 
 						swal({
 							  type: "success",
-							  title: "La test ha sido borrada correctamente",
+							  title: "La pregunta ha sido borrada correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){

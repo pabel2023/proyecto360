@@ -67,8 +67,7 @@ class ControladorItemCorum{
 
 		if(isset($_POST["nuevaid_evento"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevanombre"])){
-
+			
 				$tabla = "itemcorum";
 
 				$datos = array(
@@ -89,7 +88,7 @@ class ControladorItemCorum{
 
 					swal({
 						  type: "success",
-						  title: " ItemCorum ha sido guardada correctamente",
+						  title: " Quórum ha sido guardada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -105,28 +104,9 @@ class ControladorItemCorum{
 				}
 
 
-			}else{
-
-				echo'<script>
-
-					swal({
-						  type: "error",
-						  title: "¡ ItemCorum no puede ir vacía o llevar caracteres especiales!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
-							if (result.value) {
-
-							window.location = "itemcorum";
-
-							}
-						})
-
-			  	</script>';
+			
 
 			}
-
-		}
 
 	}
 
@@ -176,7 +156,7 @@ class ControladorItemCorum{
 
 					swal({
 						  type: "success",
-						  title: " ItemCorum ha sido cambiada correctamente",
+						  title: " Quórum ha sido cambiada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -198,7 +178,7 @@ class ControladorItemCorum{
 
 					swal({
 						  type: "error",
-						  title: "¡ItemCorum no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡Quórum no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -236,7 +216,7 @@ class ControladorItemCorum{
 
 						swal({
 							  type: "success",
-							  title: "La ItemCorum ha sido borrada correctamente",
+							  title: "Quórum ha sido borrada correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){

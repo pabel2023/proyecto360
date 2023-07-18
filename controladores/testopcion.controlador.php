@@ -14,8 +14,8 @@ class ControladorTestopcion{
 
 				$tabla ="testopcion";
 
-				$datos = array("id"=>$_POST["nuevaid"],
-				"id_evento"=>$_POST["nuevaid_evento"],
+				$datos = array(
+				"id_evento"=>$_POST["nuevaEvento"],
 				"id_test"=>$_POST["nuevaid_test"],
 				"texto"=>$_POST["nuevatexto"],
 				"estado"=>$_POST["nuevaestado"]);
@@ -28,7 +28,7 @@ class ControladorTestopcion{
 
 					swal({
 						  type: "success",
-						  title: " Testopcion ha sido guardada correctamente",
+						  title: " La Respuesta ha sido guardada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -50,7 +50,7 @@ class ControladorTestopcion{
 
 					swal({
 						  type: "error",
-						  title: "¡ Testopcion no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡ El texto no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -109,7 +109,7 @@ class ControladorTestopcion{
 
 					swal({
 						  type: "success",
-						  title: " Testopcion ha sido cambiada correctamente",
+						  title: " La Respuesta ha sido cambiada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -131,7 +131,7 @@ class ControladorTestopcion{
 
 					swal({
 						  type: "error",
-						  title: "¡Testopcion no puede ir vacía o llevar caracteres especiales!",
+						  title: "¡El texto no puede ir vacía o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -169,7 +169,7 @@ class ControladorTestopcion{
 
 						swal({
 							  type: "success",
-							  title: "La Testopcion ha sido borrada correctamente",
+							  title: "La Respuesta ha sido borrada correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){

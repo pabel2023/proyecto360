@@ -8,16 +8,17 @@ class ControladorTestaction{
 
 	static public function ctrCrearTestaction(){
 
-		if(isset($_POST["nuevaid_evento"])){
+		if(isset($_POST["nuevaEvento"])){
 
 
 
 				$tabla ="testaction";
 
 				$datos = array(
-				"id_evento"=>$_POST["nuevaid_evento"],
+				"id_evento"=>$_POST["nuevaEvento"],
 				"id_text"=>$_POST["nuevaid_text"],
-				"id_test_opcion"=>$_POST["nuevaid_test_opcion"]);
+				"id_test_opcion"=>$_POST["nuevaid_test_opcion"],
+				"id_usuario"=>$_POST["nuevaid_usuario"]);
 
 				$respuesta = ModeloTestaction::mdlIngresarTestaction($tabla, $datos);
 
@@ -27,7 +28,7 @@ class ControladorTestaction{
 
 					swal({
 						  type: "success",
-						  title: " Testaction ha sido guardada correctamente",
+						  title: " la votacion ha sido guardada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -78,7 +79,8 @@ class ControladorTestaction{
 				$datos = array("id"=>$_POST["idTestaction"],
 				"id_evento"=>$_POST["editarid_evento"],
 				"id_text"=>$_POST["editarid_text"],
-				"id_test_opcion"=>$_POST["editarid_test_opcion"]);
+				"id_test_opcion"=>$_POST["editarid_test_opcion"],
+				"id_usuario"=>$_POST["editarid_usuario"]);
 										
 				$respuesta = ModeloTestaction::mdlEditarTestaction($tabla, $datos);
 
@@ -88,7 +90,7 @@ class ControladorTestaction{
 
 					swal({
 						  type: "success",
-						  title: " Testaction ha sido cambiada correctamente",
+						  title: " La votacion ha sido cambiada correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
@@ -133,7 +135,7 @@ class ControladorTestaction{
 
 						swal({
 							  type: "success",
-							  title: "La Testaction ha sido borrada correctamente",
+							  title: "La votacion ha sido borrada correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){

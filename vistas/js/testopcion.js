@@ -44,14 +44,14 @@ $(".tablas").on("click", ".btnEliminarTestopcion", function(){
 	var idTestopcion = $(this).attr("idTestopcion");
 	
 	swal({
-        title: '¿Está seguro de borrar el Testopcion?',
+        title: '¿Está seguro de borrar la Respuesta?',
         text: "¡Si no lo está puede cancelar la acción!",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar Testopcion!'
+        confirmButtonText: 'Si, borrar Respuesta!'
       }).then(function(result){
         if (result.value) {
           

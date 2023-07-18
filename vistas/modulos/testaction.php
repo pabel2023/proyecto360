@@ -20,7 +20,7 @@ if($_SESSION["perfil"] == "Vendedor"){
     
     <h1>
       
-      Administrar Testaction
+    Votaciones
     
     </h1>
 
@@ -28,7 +28,7 @@ if($_SESSION["perfil"] == "Vendedor"){
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar Testaction</li>
+      <li class="active">Votaciones</li>
     
     </ol>
 
@@ -42,7 +42,7 @@ if($_SESSION["perfil"] == "Vendedor"){
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarTestaction">
           
-          Agregar Testaction
+          Agregar Votaciones
 
         </button>
 
@@ -57,9 +57,10 @@ if($_SESSION["perfil"] == "Vendedor"){
          <tr>
            
            <th style="width:10px">#</th>
-           <th>id_evento</th>
-           <th>id_text</th>
-           <th>id_test_opcion</th>
+           <th>Asamblea</th>
+           <th>Pregunta</th>
+           <th>Respuesta</th>
+           <th>Usuario</th>
            <th>Acciones</th>
 
          </tr> 
@@ -76,14 +77,16 @@ if($_SESSION["perfil"] == "Vendedor"){
           $testaction = ControladorTestaction::ctrMostrarTestaction($item, $valor);
 
           foreach ($testaction as $key => $value) {
+            $Eventos = ControladorEventos::ctrMostrarEventos("id", $value["id_evento"]);
            
             echo ' <tr>
 
                     <td>'.($key+1).'</td>
 
-                    <td class="text-uppercase">'.$value["id_evento"].'</td>
+                    <td class="text-uppercase">'.$Eventos["codigo"].'</td>
                     <td class="text-uppercase">'.$value["id_text"].'</td>
                     <td class="text-uppercase">'.$value["id_test_opcion"].'</td>
+                    <td class="text-uppercase">'.$value["id_usuario"].'</td>
 
                     <td>
 
@@ -138,7 +141,7 @@ MODAL AGREGAR TESTACTION
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Testaction</h4>
+          <h4 class="modal-title">Agregar Votacion</h4>
 
         </div>
 
@@ -150,15 +153,33 @@ MODAL AGREGAR TESTACTION
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL ID_EVENTO -->
-            
-            <div class="form-group">
+                   <!-- ENTRADA PARA SELECCIONAR Evento -->
+
+        <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
-                <input type="number" min="0"  class="form-control input-lg" name="nuevaid_evento" placeholder="Ingresar id_evento" >
+                <select class="form-control input-lg" id="nuevaEvento" name="nuevaEvento" required>
+                  
+                  <option value="">Selecionar Asamblea</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $eventos = ControladorEventos::ctrMostrarEventos($item, $valor);
+
+                  foreach ($eventos as $key => $value) {
+                    
+                    echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
+                  }
+
+                  ?>
+  
+                </select>
 
               </div>
 
@@ -169,9 +190,9 @@ MODAL AGREGAR TESTACTION
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-file-text-o"></i></span> 
 
-                <input type="number" min="0"  class="form-control input-lg" name="nuevaid_text" placeholder="Ingresar id_text" >
+                <input type="number" min="0"  class="form-control input-lg" name="nuevaid_text" placeholder="Ingresar Pregunta" >
 
               </div>
 
@@ -182,9 +203,23 @@ MODAL AGREGAR TESTACTION
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-server"></i></span> 
 
-                <input type="number" min="0"  class="form-control input-lg" name="nuevaid_test_opcion" placeholder="Ingresar id_test_opcion" >
+                <input type="number" min="0"  class="form-control input-lg" name="nuevaid_test_opcion" placeholder="Ingresar Respuesta" >
+
+              </div>
+
+            </div>
+
+             <!-- ENTRADA ID_USUARIO -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user-o"></i></span> 
+
+                <input type="number" min="0"  class="form-control input-lg" name="nuevaid_usuario" placeholder="Ingresar Usuario" >
 
               </div>
 
@@ -202,7 +237,7 @@ MODAL AGREGAR TESTACTION
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Testaction</button>
+          <button type="submit" class="btn btn-primary">Guardar Votacion</button>
 
         </div>
 
@@ -241,7 +276,7 @@ MODAL EDITAR TESTACTION
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar Testaction</h4>
+          <h4 class="modal-title">Editar Votaciones</h4>
 
         </div>
 
@@ -259,7 +294,7 @@ MODAL EDITAR TESTACTION
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
                 <input type="number" min="0"  class="form-control input-lg" name="editarid_evento" id="editarid_evento" >
 
@@ -274,7 +309,7 @@ MODAL EDITAR TESTACTION
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-file-text-o"></i></span> 
 
                 <input type="number" min="0"  class="form-control input-lg" name="editarid_text" id="editarid_text" >
 
@@ -287,9 +322,23 @@ MODAL EDITAR TESTACTION
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-server"></i></span> 
 
                 <input type="number" min="0"  class="form-control input-lg" name="editarid_test_opcion" id="editarid_test_opcion" >
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL ID_USUARIO -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user-o"></i></span> 
+
+                <input type="number" min="0"  class="form-control input-lg" name="editarid_usuario" id="editarid_usuario" >
 
               </div>
 

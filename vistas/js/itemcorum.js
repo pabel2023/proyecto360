@@ -42,14 +42,13 @@ $(".tablas").on("click", ".btnEliminarItemCorum", function(){
 	var idItemCorum = $(this).attr("idItemCorum");
 	
 	swal({
-        title: 'Â¿EstÃ¡ seguro de borrar el ItemCorum?',
-        text: "Â¡Si no lo estÃ¡ puede cancelar la acciÃ³n!",
+        title: '¿Estas seguro de borrar el Quorum?',
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar ItemCorum!'
+        confirmButtonText: 'Si, borrar Quorum!'
       }).then(function(result){
         if (result.value) {
           

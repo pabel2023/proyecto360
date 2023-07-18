@@ -32,9 +32,13 @@ class ControladorItemCorum{
 						"nombre"=>$datos[1],
 						"tipo"=>$datos[2],
 						"porcentage"=>$datos[3],
-						"documento_encargado"=>$datos[4],
-						"nombre_encargado"=>$datos[5],
-						"estado"=>'A'
+						"documento_titular"=>$datos[4],
+						"nombre_titular"=>$datos[5],
+						"apellido_titular"=>$datos[6],
+						"documento_encargado"=>$datos[7],
+						"nombre_encargado"=>$datos[8],
+						"apellido_encargado"=>$datos[9],
+						"estado"=>$datos[10]
 						);
 									 
 						$respuesta = ModeloItemCorum::mdlIngresarItemCorum($tabla, $datas);
@@ -45,6 +49,24 @@ class ControladorItemCorum{
 				 // echo '<div>'. $i. "). " .$linea.'</div>';
 				$i++;
 			}
+
+
+			echo'<script>
+
+					swal({
+						  type: "success",
+						  title: " Quórum ha sido guardada correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+									if (result.value) {
+
+									window.location = "itemcorum";
+
+									}
+								})
+
+					</script>';
 
 
 				//echo '<p style="text-aling:center; color:#333;">Total de Registros: '. $cantidad_regist_agregados .'</p>';
@@ -75,8 +97,12 @@ class ControladorItemCorum{
 				"nombre"=>$_POST["nuevanombre"],
 				"tipo"=>$_POST["nuevatipo"],
 				"porcentage"=>$_POST["nuevaporcentage"],
+				"documento_titular"=>$_POST["nuevadocumento_titular"],
+				"nombre_titular"=>$_POST["nuevanombre_titular"],
+				"apellido_titular"=>$_POST["nuevaapellido_titular"],
 				"documento_encargado"=>$_POST["nuevadocumento_encargado"],
 				"nombre_encargado"=>$_POST["nuevanombre_encargado"],
+				"apellido_encargado"=>$_POST["nuevaapellido_encargado"],
 				"estado"=>$_POST["nuevaestado"]
 				);
 							 
@@ -143,8 +169,12 @@ class ControladorItemCorum{
 								"nombre"=>$_POST["editarnombre"],
 								"tipo"=>$_POST["editartipo"],
 								"porcentage"=>$_POST["editarporcentage"],
+								"documento_titular"=>$_POST["editardocumento_titular"],
+								"nombre_titular"=>$_POST["editarnombre_titular"],
+								"apellido_titular"=>$_POST["editarapellido_titular"],
 								"documento_encargado"=>$_POST["editardocumento_encargado"],
 								"nombre_encargado"=>$_POST["editarnombre_encargado"],
+								"apellido_encargado"=>$_POST["editarapellido_encargado"],
 								"estado"=>$_POST["editarestado"]
 								);
 

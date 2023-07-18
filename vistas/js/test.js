@@ -50,6 +50,8 @@ $(".tablas").on("click", ".btnEditarTest", function(){
 	       $("#editarTipo").val(respuesta["tipo"]); 
  
 	       $("#editarEstado").val(respuesta["estado"]); 
+         $("#editarEstado").html(respuesta["estado"]);
+			  
  
 
 	  }

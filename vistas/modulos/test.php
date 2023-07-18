@@ -156,9 +156,9 @@ MODAL AGREGAR TEST
 
           <div class="box-body">
 
-        <!-- ENTRADA PARA SELECCIONAR Evento -->
+          <!-- ENTRADA PARA SELECCIONAR Evento -->
 
-        <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
@@ -216,15 +216,24 @@ MODAL AGREGAR TEST
               </div>
 
             </div>
-            <!-- ENTRADA PARA EL ESTADO -->
-            
+ 
+            <!-- ENTRADA PARA SELECCIONAR SU ESTADO -->
+
             <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-refresh"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaEstado" placeholder="Ingresar estado" >
+                <select class="form-control input-lg" name="nuevaEstado">
+                  
+                  <option value="">Selecionar estado</option>
+
+                  <option value="Activo">Activo</option>
+
+                  <option value="Inactivo">Inactivo</option>
+
+                </select>
 
               </div>
 
@@ -233,6 +242,7 @@ MODAL AGREGAR TEST
           </div>
 
         </div>
+        
 
         <!--=====================================
         PIE DEL MODAL
@@ -356,15 +366,23 @@ MODAL EDITAR TEST
               </div>
 
             </div>
-            <!-- ENTRADA PARA EL ESTADO -->
-            
+             <!-- ENTRADA PARA SELECCIONAR SU ESTADO -->
+
             <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-refresh"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarEstado" id="editarEstado" >
+                <select class="form-control input-lg" name="editarEstado">
+                  
+                  <option value="" id="editarEstado"></option>
+
+                  <option value="Activo">Activo</option>
+
+                  <option value="inactivo">Inactivo</option>
+
+                </select>
 
               </div>
 

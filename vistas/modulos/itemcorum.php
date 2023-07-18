@@ -67,12 +67,13 @@ if($_SESSION["perfil"] == "Vendedor"){
            <th style="width:10px">#</th>
            
            <th>Asamblea</th>
-           <th>Nombre</th>
+           <th>Nomenclatura</th>
            <th>Tipo</th>
            <th>Porcentaje</th>
-           <th>Documento encargado</th>
-           <th>Nombre encargado</th>
+           <th>titular</th>
+           <th>encargado</th>
            <th>Estado</th>
+           <th>participacion</th>
            <th>Acciones</th>
 
          </tr> 
@@ -99,12 +100,22 @@ if($_SESSION["perfil"] == "Vendedor"){
                     <td class="text-uppercase">'.$value["nombre"].'</td>
                     <td class="text-uppercase">'.$value["tipo"].'</td>
                     <td class="text-uppercase">'.$value["porcentage"].'</td>
-                    <td class="text-uppercase">'.$value["documento_encargado"].'</td>
-                    <td class="text-uppercase">'.$value["nombre_encargado"].'</td>
-                    <td class="text-uppercase">'.$value["estado"].'</td>
+                    <td class="text-uppercase">'.$value["documento_titular"].' '.$value["nombre_titular"].' '.$value["apellido_titular"].'</td>
+                    <td class="text-uppercase">'.$value["documento_encargado"].' '.$value["nombre_encargado"].' '.$value["apellido_encargado"].'</td>
+                    <td class="text-uppercase">'.$value["estado"].'</td>';
+                    
+                    if($value["participacion"] != 0){
+
+                      echo '<td><button class="btn btn-success btn-xs btnActivar" idItemCorum="'.$value["id"].'" estadoItemCorum="0">Activado</button></td>';
+  
+                    }else{
+  
+                      echo '<td><button class="btn btn-danger btn-xs btnActivar" idItemCorum="'.$value["id"].'" estadoItemCorum="1">Desactivado</button></td>';
+  
+                    } 
                     
 
-                    <td>
+                    echo ' <td>
 
                       <div class="btn-group">
                           
@@ -294,11 +305,53 @@ MODAL AGREGAR ITEMCORUM
               
                 <span class="input-group-addon"><i class="fa fa-pie-chart"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaporcentage" placeholder="Ingresar porcentage" >
+                <input type="text" class="form-control input-lg" name="nuevaporcentage" placeholder="Ingresar porcentaje" >
 
               </div>
 
             </div>
+
+            <!-- ENTRADA PARA EL DOCUMENTO_TITULAR -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-file-o"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevadocumento_titular" placeholder="Ingresar documento titular" >
+
+              </div>
+
+            </div>
+            <!-- ENTRADA PARA EL NOMBRE_TITULAR -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-street-view"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevanombre_titular" placeholder="Ingresar nombre titular" >
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL APELLIDO_TITULAR -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-street-view"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevaapellido_titular" placeholder="Ingresar apellido titular" >
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL DOCUMENTO_ENCARGADO -->
             
             <div class="form-group">
@@ -325,15 +378,38 @@ MODAL AGREGAR ITEMCORUM
               </div>
 
             </div>
-            <!-- ENTRADA PARA EL ESTADO -->
+
+            <!-- ENTRADA PARA EL APELLIDO_ENCARGADO -->
             
             <div class="form-group">
               
               <div class="input-group">
               
+                <span class="input-group-addon"><i class="fa fa-street-view"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevaapellido_encargado" placeholder="Ingresar apellido encargado" >
+
+              </div>
+
+            </div>
+
+           <!-- ENTRADA PARA SELECCIONAR SU ESTADO -->
+
+           <div class="form-group">
+              
+              <div class="input-group">
+              
                 <span class="input-group-addon"><i class="fa fa-refresh"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaestado" placeholder="Ingresar estado" >
+                <select class="form-control input-lg" name="nuevaestado">
+                  
+                  <option value="">Selecionar estado</option>
+
+                  <option value="Activo">Activo</option>
+
+                  <option value="Inactivo">Inactivo</option>
+
+                </select>
 
               </div>
 
@@ -412,7 +488,7 @@ MODAL EDITAR ITEMCORUM
               
                 <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
-                <input type="text"   class="form-control input-lg" name="editarid_evento" id="editarid_evento" required>
+                <input type="text"   class="form-control input-lg" name="editarid_evento" id="editarid_evento" readonly  required>
 
                 <input type="hidden"  name="idItemCorum" id="idItemCorum" required>
 
@@ -464,6 +540,51 @@ MODAL EDITAR ITEMCORUM
               </div>
 
             </div>
+
+            <!-- ENTRADA PARA EL DOCUMENTO_TITULAR -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-file-o"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editardocumento_titular" id="editardocumento_titular" >
+
+                
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL NOMBRE_TITULAR -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-street-view"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarnombre_titular" id="editarnombre_titular" >
+
+              </div>
+
+            </div>
+            <!-- ENTRADA PARA EL APELLIDO_TITULAR -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-street-view"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarapellido_titular" id="editarapellido_titular" >
+
+                
+
+              </div>
+
+            </div>
             <!-- ENTRADA PARA EL DOCUMENTO_ENCARGADO -->
             
             <div class="form-group">
@@ -479,6 +600,7 @@ MODAL EDITAR ITEMCORUM
               </div>
 
             </div>
+
             <!-- ENTRADA PARA EL NOMBRE_ENCARGADO -->
             
             <div class="form-group">
@@ -489,22 +611,41 @@ MODAL EDITAR ITEMCORUM
 
                 <input type="text" class="form-control input-lg" name="editarnombre_encargado" id="editarnombre_encargado" >
 
+              </div>
+
+            </div>
+            <!-- ENTRADA PARA EL APELLIDO_ENCARGADO -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-street-view"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarapellido_encargado" id="editarapellido_encargado" >
+
                 
 
               </div>
 
             </div>
-            <!-- ENTRADA PARA EL ESTADO -->
-            
+            <!-- ENTRADA PARA SELECCIONAR SU ESTADO -->
+
             <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-refresh"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarestado" id="editarestado" >
+                <select class="form-control input-lg" name="editarestado">
+                  
+                  <option value="" id="editarestado"></option>
 
-                
+                  <option value="Activo">Activo</option>
+
+                  <option value="inactivo">Inactivo</option>
+
+                </select>
 
               </div>
 

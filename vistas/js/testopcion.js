@@ -27,7 +27,9 @@ $(".tablas").on("click", ".btnEditarTestopcion", function(){
  
 	       $("#editartexto").val(respuesta["texto"]); 
  
-	       $("#editarestado").val(respuesta["estado"]); 
+	       $("#editarestado").val(respuesta["estado"]);
+         $("#editarestado").html(respuesta["estado"]);
+
  
 
 	  }

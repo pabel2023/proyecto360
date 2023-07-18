@@ -209,15 +209,23 @@ MODAL AGREGAR TESTOPCION
               </div>
 
             </div>
-            <!-- ENTRADA PARA EL ESTADO -->
-            
+           <!-- ENTRADA PARA SELECCIONAR SU ESTADO -->
+
             <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-refresh"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaestado" placeholder="Ingresar estado" >
+                <select class="form-control input-lg" name="nuevaestado">
+                  
+                  <option value="">Selecionar estado</option>
+
+                  <option value="Activo">Activo</option>
+
+                  <option value="Inactivo">Inactivo</option>
+
+                </select>
 
               </div>
 
@@ -331,17 +339,23 @@ MODAL EDITAR TESTOPCION
               </div>
 
             </div>
-            <!-- ENTRADA PARA EL ESTADO -->
-            
+            <!-- ENTRADA PARA SELECCIONAR SU ESTADO -->
+
             <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-refresh"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarestado" id="editarestado" >
+                <select class="form-control input-lg" name="editarestado">
+                  
+                  <option value="" id="editarestado"></option>
 
+                  <option value="Activo">Activo</option>
 
+                  <option value="inactivo">Inactivo</option>
+
+                </select>
 
               </div>
 

@@ -10,14 +10,22 @@ class ModeloItemCorum{
 
 	static public function mdlIngresarItemCorum($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_evento,nombre,tipo,porcentage,documento_encargado,nombre_encargado,estado) VALUES (:id_evento,:nombre,:tipo,:porcentage,:documento_encargado,:nombre_encargado,:estado) ");
+		$stmt = Conexion::conectar()->prepare(
+		"INSERT INTO $tabla(id_evento,nombre,tipo,porcentage,documento_titular,nombre_titular,apellido_titular,
+		documento_encargado,nombre_encargado,apellido_encargado,estado) 
+		VALUES (:id_evento,:nombre,:tipo,:porcentage,:documento_titular,:nombre_titular,
+		:apellido_titular,:documento_encargado,:nombre_encargado,:apellido_encargado,:estado)");
 
 		$stmt->bindParam(":id_evento", $datos["id_evento"], PDO::PARAM_STR);
 		$stmt->bindParam(":nombre", $datos["nombre"] , PDO::PARAM_STR);
 		$stmt->bindParam(":tipo", $datos["tipo"] , PDO::PARAM_STR);
 		$stmt->bindParam(":porcentage", $datos["porcentage"] , PDO::PARAM_STR);
+		$stmt->bindParam(":documento_titular", $datos["documento_titular"] , PDO::PARAM_STR);
+		$stmt->bindParam(":nombre_titular", $datos["nombre_titular"] , PDO::PARAM_STR);
+		$stmt->bindParam(":apellido_titular", $datos["apellido_titular"] , PDO::PARAM_STR);
 		$stmt->bindParam(":documento_encargado", $datos["documento_encargado"] , PDO::PARAM_STR);
 		$stmt->bindParam(":nombre_encargado", $datos["nombre_encargado"] , PDO::PARAM_STR);
+		$stmt->bindParam(":apellido_encargado", $datos["apellido_encargado"] , PDO::PARAM_STR);
 		$stmt->bindParam(":estado", $datos["estado"] , PDO::PARAM_STR);
 		
 
@@ -74,7 +82,13 @@ class ModeloItemCorum{
 
 	static public function mdlEditarItemCorum($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET id_evento=:id_evento,nombre=:nombre,tipo=:tipo,porcentage=:porcentage,documento_encargado=:documento_encargado,nombre_encargado=:nombre_encargado,estado=:estado WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare(
+		"UPDATE $tabla SET id_evento=:id_evento,nombre=:nombre,
+		tipo=:tipo,porcentage=:porcentage,documento_titular=:documento_titular,
+		nombre_titular=:nombre_titular,apellido_titular=:apellido_titular,
+		documento_encargado=:documento_encargado,nombre_encargado=:nombre_encargado,
+		apellido_encargado=:apellido_encargado,estado=:estado 
+		WHERE id = :id");
 
 		
 		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
@@ -82,8 +96,12 @@ class ModeloItemCorum{
 		$stmt->bindParam(":nombre", $datos["nombre"] , PDO::PARAM_STR);
 		$stmt->bindParam(":tipo", $datos["tipo"] , PDO::PARAM_STR);
 		$stmt->bindParam(":porcentage", $datos["porcentage"] , PDO::PARAM_STR);
+		$stmt->bindParam(":documento_titular", $datos["documento_titular"] , PDO::PARAM_STR);
+		$stmt->bindParam(":nombre_titular", $datos["nombre_titular"] , PDO::PARAM_STR);
+		$stmt->bindParam(":apellido_titular", $datos["apellido_titular"] , PDO::PARAM_STR);
 		$stmt->bindParam(":documento_encargado", $datos["documento_encargado"] , PDO::PARAM_STR);
 		$stmt->bindParam(":nombre_encargado", $datos["nombre_encargado"] , PDO::PARAM_STR);
+		$stmt->bindParam(":apellido_encargado", $datos["apellido_encargado"] , PDO::PARAM_STR);
 		$stmt->bindParam(":estado", $datos["estado"] , PDO::PARAM_STR);
 		
 
@@ -111,6 +129,34 @@ class ModeloItemCorum{
 		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 
 		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+
+		/*=============================================
+	ACTUALIZAR ItemCorum
+	=============================================*/
+
+	static public function mdlActualizarItemCorum($tabla, $item1, $valor1, $item2, $valor2){
+
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE $item2 = :$item2");
+
+		$stmt -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
+		$stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
 
 		if($stmt -> execute()){
 

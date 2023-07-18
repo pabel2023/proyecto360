@@ -35,6 +35,7 @@ $(".tablas").on("click", ".btnEditarEventos", function(){
 	       $("#editarhora_fin").val(respuesta["hora_fin"]); 
  
 	       $("#editarestado").val(respuesta["estado"]); 
+         $("#editarestado").html(respuesta["estado"]);
  
 
 	  }

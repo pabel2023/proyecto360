@@ -21,9 +21,9 @@ class ControladorEventos{
 				"fecha_ini"=>$_POST["nuevafecha_ini"],				
 				"fecha_fin"=>$_POST["nuevafecha_fin"],
 				"hora_ini"=>$_POST["nuevahora_ini"],
-					"hora_fin"=>$_POST["nuevahora_fin"],
-					"estado"=>"I",
-					"codigo"=>"EV".date("H").date("i").date("s")
+				"hora_fin"=>$_POST["nuevahora_fin"],
+				"estado"=>$_POST["nuevaestado"],
+				"codigo"=>"EV".date("H").date("i").date("s")
 						);
 
 				$respuesta = ModeloEventos::mdlIngresarEventos($tabla, $datos);

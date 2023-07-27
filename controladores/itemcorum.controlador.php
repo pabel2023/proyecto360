@@ -23,9 +23,13 @@ class ControladorItemCorum{
 				if ($i <> 0) {
 
 					$datos = explode(";", $linea);
-				   
+				   if(empty($datos[0]) && empty($datos[1]) && empty($datos[2]) && empty($datos[3]) && empty($datos[4])
+					  && empty($datos[5]) && empty($datos[6]) && empty($datos[7]) && empty($datos[8]) && empty($datos[9])
+					   && empty($datos[10]) && empty($datos[11])){
 									
-							$tabla = "itemcorum";
+							
+				   }else{
+					   $tabla = "itemcorum";
 
 						$datas = array(
 						"id_evento"=>$datos[0],
@@ -40,9 +44,13 @@ class ControladorItemCorum{
 						"apellido_encargado"=>$datos[9],
 						"estado"=>$datos[10]
 						);
-									 
+						
+							
+				
+
+						ModeloItemCorum::mdlBorrarItemCorum2($tabla, $datos[0]);
 						$respuesta = ModeloItemCorum::mdlIngresarItemCorum($tabla, $datas);
-				   
+				   }
 			}
 				
 
@@ -149,6 +157,16 @@ class ControladorItemCorum{
 		return $respuesta;
 	
 	}
+	
+	static public function ctrMostrarItemCorum2($item, $valor){
+		
+		$tabla = "itemcorum";
+
+		$respuesta = ModeloItemCorum::mdlMostrarItemCorum2($tabla, $item, $valor);
+
+		return $respuesta;
+	
+	}
 
 	/*=============================================
 	EDITAR ITEMCORUM
@@ -192,7 +210,7 @@ class ControladorItemCorum{
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "itemcorum";
+									window.location = "index.php?ruta=itemcorum&idEventos="'.$_POST["editarid_evento"].';
 
 									}
 								})
@@ -214,7 +232,7 @@ class ControladorItemCorum{
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "itemcorum";
+							window.location = "index.php?ruta=itemcorum&idEventos="'.$_POST["editarid_evento"].';
 
 							}
 						})

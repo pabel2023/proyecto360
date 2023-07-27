@@ -18,7 +18,8 @@ class ControladorTestaction{
 				"id_evento"=>$_POST["nuevaEvento"],
 				"id_text"=>$_POST["nuevaid_text"],
 				"id_test_opcion"=>$_POST["nuevaid_test_opcion"],
-				"id_usuario"=>$_POST["nuevaid_usuario"]);
+				"text"=>$_POST["text"],
+				"id_usuario"=>$_SESSION["usuario"]);
 
 				$respuesta = ModeloTestaction::mdlIngresarTestaction($tabla, $datos);
 
@@ -46,6 +47,54 @@ class ControladorTestaction{
 
 			
 
+		}
+
+	}
+	
+	static public function ctrCrearTestaction2(){
+
+		if(isset($_GET["idEvento"]) && isset($_GET["idTest"]) && isset($_GET["respuesta"])){
+
+
+
+				$tabla ="testaction";
+
+				$datos = array(
+				"id_evento"=>$_GET["idEvento"],
+				"id_text"=>$_GET["idTest"],
+				"id_test_opcion"=>null,
+				"text"=>$_GET["respuesta"],
+				"id_usuario"=>$_SESSION["usuario"]);
+
+				$respuesta = ModeloTestaction::mdlIngresarTestaction($tabla, $datos);
+
+				if($respuesta == "ok"){
+
+					echo'<script>
+
+					swal({
+						  type: "success",
+						  title: " la votacion ha sido guardada correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+									if (result.value) {
+
+									window.location = "inicio";
+
+									}
+								})
+
+					</script>';
+
+				}
+
+
+			
+
+		}else{
+			
+			echo'aqui!!';
 		}
 
 	}

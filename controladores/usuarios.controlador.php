@@ -5,8 +5,47 @@ class ControladorUsuarios{
 	/*=============================================
 	INGRESO DE USUARIO
 	=============================================*/
+	
+		
 
 	static public function ctrIngresoUsuario(){
+		if(isset($_GET["evento"]) && isset($_GET["usuario"]) && isset($_GET["hash"])){
+			
+				$tabla = "hash";
+				$item = "hash";
+				$valor = $_GET["hash"];
+
+				$respuesta = ModeloHash::MdlMostrarHash($tabla, $item, $valor);	
+			if(is_array($respuesta) && $respuesta["evento"] == $_GET["evento"] && $respuesta["usuario"] == $_GET["usuario"]){
+
+			if($respuesta["estado"] == 'Activo')
+			{
+						$_SESSION["iniciarSesion"] = "ok";
+						$_SESSION["id"] = $respuesta["id"];
+						$_SESSION["nombre"] = $respuesta["evento"];
+						$_SESSION["usuario"] = $respuesta["usuario"];
+						$_SESSION["foto"] = $respuesta["vistas/img/usuarios/admin/797.png"];
+						$_SESSION["perfil"] = "Especial";
+						
+						echo '<script>
+
+								window.location = "inicio";
+
+							</script>';
+			}
+			
+			
+			}
+			
+			
+			
+			
+		}
+		
+		
+	
+		
+		/****************************/
 
 		if(isset($_POST["ingUsuario"])){
 

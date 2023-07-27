@@ -83,11 +83,18 @@ if($_SESSION["perfil"] == "Vendedor"){
         <tbody>
 
         <?php
+		
 
           $item = null;
           $valor = null;
+		  
+		  if(isset($_GET["idEventos"])){
+			  
+		  $item = "id_evento";
+          $valor = $_GET["idEventos"];
+		  }
 
-          $ItemCorum = ControladorItemCorum::ctrMostrarItemCorum($item, $valor);
+          $ItemCorum = ControladorItemCorum::ctrMostrarItemCorum($item,$valor);
 
           foreach ($ItemCorum as $key => $value) {
            

@@ -3,12 +3,8 @@
 	 <section class="sidebar">
 
 		<ul class="sidebar-menu">
-
-		<?php
-
-		if($_SESSION["perfil"] == "Administrador"){
-
-			echo '<li class="active">
+		
+		<li class="active">
 
 				<a href="inicio">
 
@@ -17,7 +13,39 @@
 
 				</a>
 
+		</li>
+
+		<?php
+		
+		
+
+		if($_SESSION["perfil"] == "Especial"){
+
+			echo '
+
+			<li>
+
+				<a href="votacion">
+
+					<i class="fa fa-cogs"></i>
+					<span>Votacion</span>
+
+				</a>
+
 			</li>
+			
+
+			';
+
+		}
+		
+			
+		
+		
+
+		if($_SESSION["perfil"] == "Administrador"){
+
+			echo '
 
 			<li>
 
@@ -128,16 +156,7 @@
 				
 				</li>
 				
-				<li>
-
-				<a href="testopcion">
-
-				<i class="fa fa-server"></i>
-				<span>Respuestas</span>
-
-			</a>
 				
-				</li>
 				
 				<li>
 
@@ -146,7 +165,7 @@
 				<i class="fa fa-cogs"></i>
 				<span>Votaciones</span>
 
-			</a>
+				</a>
 				
 				</li>
 				

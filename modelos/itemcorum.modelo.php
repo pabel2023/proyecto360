@@ -52,13 +52,11 @@ class ModeloItemCorum{
 
 		if($item != null){
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
-
-			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = '$valor'");
 
 			$stmt -> execute();
 
-			return $stmt -> fetch();
+			return $stmt ->  fetchAll();
 
 		}else{
 
@@ -69,6 +67,25 @@ class ModeloItemCorum{
 			return $stmt -> fetchAll();
 
 		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+	
+	
+	static public function mdlMostrarItemCorum2($tabla, $item, $valor){
+
+		
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = '$valor' ");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		
 
 		$stmt -> close();
 
@@ -129,6 +146,26 @@ class ModeloItemCorum{
 		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 
 		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+	
+		static public function mdlBorrarItemCorum2($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_evento = '$datos'");	
 
 		if($stmt -> execute()){
 

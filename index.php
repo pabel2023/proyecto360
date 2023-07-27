@@ -19,6 +19,7 @@ require_once "controladores/clientes.controlador.php";
 require_once "controladores/eventos.controlador.php";
 require_once "controladores/vieventos.controlador.php";
 require_once "controladores/itemcorum.controlador.php";
+require_once "controladores/hash.controlador.php";
 require_once "controladores/ventas.controlador.php";
 
 require_once "modelos/usuarios.modelo.php";
@@ -32,7 +33,9 @@ require_once "modelos/eventos.modelo.php";
 require_once "modelos/vieventos.modelo.php";
 require_once "modelos/itemcorum.modelo.php";
 require_once "modelos/ventas.modelo.php";
+require_once "modelos/hash.modelo.php";
 require_once "extensiones/vendor/autoload.php";
+
 
 $plantilla = new ControladorPlantilla();
 $plantilla -> ctrPlantilla();

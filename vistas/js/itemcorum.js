@@ -20,7 +20,7 @@ $(".tablas").on("click", ".btnEditarItemCorum", function(){
       success:function(respuesta){
       
        $("#idItemCorum").val(respuesta["id"]);
-		   $("#editarid_evento").val(respuesta["id_evento"]);
+		   $("#editarid_evento").val(respuesta["0","id_evento"]);
 	     $("#editarnombre").val(respuesta["nombre"]);
 		   $("#editartipo").val(respuesta["tipo"]);
 		   $("#editarporcentage").val(respuesta["porcentage"]);

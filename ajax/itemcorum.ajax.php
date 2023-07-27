@@ -18,7 +18,7 @@ class AjaxItemCorum{
 					 
 		$respuesta = ControladorItemCorum::ctrMostrarItemCorum($item, $valor);
 
-		echo json_encode($respuesta);
+		echo json_encode($respuesta[0]);
 
 
 	}

@@ -153,6 +153,7 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "editar-venta" ||
          $_GET["ruta"] == "reportes" ||
 		 $_GET["ruta"] == "creditos" ||
+		 $_GET["ruta"] == "votacion" ||		
          $_GET["ruta"] == "salir"){
 
         include "modulos/".$_GET["ruta"].".php";

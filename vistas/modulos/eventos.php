@@ -100,8 +100,7 @@ if($_SESSION["perfil"] == "Vendedor"){
                       <div class="btn-group">
                           
                         <button class="btn btn-warning btnEditarEventos" idEventos="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarEventos"><i class="fa fa-pencil"></i></button>
-						<button class="btn btn-warning btnEditarEventos" idEventos="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarEventos3"><i class="fa fa-handshake-o"></i></button>';
-
+						<button class="btn btn-danger btnLlamarItemCorum" idEventos="'.$value["codigo"].'"><i class="fa fa-handshake-o"></i></button>';
                         if($_SESSION["perfil"] == "Administrador"){
 
                           echo '<button class="btn btn-danger btnEliminarEventos" idEventos="'.$value["id"].'"><i class="fa fa-times"></i></button>';

@@ -69,3 +69,29 @@ $(".tablas").on("click", ".btnEliminarEventos", function(){
   })
 
 })
+
+/*=============================================
+LLAMAR ITEMCORUM
+=============================================*/
+$(".tablas").on("click", ".btnLlamarItemCorum", function(){
+
+	var idEventos = $(this).attr("idEventos");
+	
+	swal({
+        title: '¿Está seguro de salir de Asamblea?',
+        text: "¡Si no lo está puede cancelar la acción!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, salir Asamblea!'
+      }).then(function(result){
+        if (result.value) {
+          
+            window.location = "index.php?ruta=itemcorum&idEventos="+idEventos;
+        }
+
+  })
+
+})

@@ -22,7 +22,7 @@ $(".tablas").on("click", ".btnEditarTest", function(){
 		  var datosEventos = new FormData();
           datosEventos.append("idEventos",respuesta["id_evento"]);
 
-           $.ajax({
+          $.ajax({
 
               url:"ajax/eventos.ajax.php",
               method: "POST",
@@ -40,17 +40,7 @@ $(".tablas").on("click", ".btnEditarTest", function(){
 
           })
       
-        
-	       $("#editarId").val(respuesta["id"]); 
- 
-	       $("#editarId_evento").val(respuesta["id_evento"]); 
- 
-	       $("#editarTexto").val(respuesta["texto"]); 
- 
-	       $("#editarTipo").val(respuesta["tipo"]); 
- 
-	       $("#editarEstado").val(respuesta["estado"]); 
-         $("#editarEstado").html(respuesta["estado"]);
+
 			  
  
 

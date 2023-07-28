@@ -16,7 +16,7 @@ class ControladorTestaction{
 
 				$datos = array(
 				"id_evento"=>$_POST["nuevaEvento"],
-				"id_text"=>$_POST["nuevaid_text"],
+				"id_test"=>$_POST["nuevaid_test"],
 				"id_test_opcion"=>$_POST["nuevaid_test_opcion"],
 				"text"=>$_POST["text"],
 				"id_usuario"=>$_SESSION["usuario"]);
@@ -61,7 +61,7 @@ class ControladorTestaction{
 
 				$datos = array(
 				"id_evento"=>$_GET["idEvento"],
-				"id_text"=>$_GET["idTest"],
+				"id_test"=>$_GET["idTest"],
 				"id_test_opcion"=>null,
 				"text"=>$_GET["respuesta"],
 				"id_usuario"=>$_SESSION["usuario"]);
@@ -127,7 +127,7 @@ class ControladorTestaction{
 
 				$datos = array("id"=>$_POST["idTestaction"],
 				"id_evento"=>$_POST["editarid_evento"],
-				"id_text"=>$_POST["editarid_text"],
+				"id_test"=>$_POST["editarid_test"],
 				"id_test_opcion"=>$_POST["editarid_test_opcion"],
 				"id_usuario"=>$_POST["editarid_usuario"]);
 										

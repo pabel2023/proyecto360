@@ -84,7 +84,7 @@ if($_SESSION["perfil"] == "Vendedor"){
                     <td>'.($key+1).'</td>
 
                     <td class="text-uppercase">'.$Eventos["codigo"].'</td>
-                    <td class="text-uppercase">'.$value["id_text"].'</td>
+                    <td class="text-uppercase">'.$value["id_test"].'</td>
                     <td class="text-uppercase">'.$value["id_test_opcion"].'</td>
                     <td class="text-uppercase">'.$value["id_usuario"].'</td>
 
@@ -192,7 +192,7 @@ MODAL AGREGAR TESTACTION
               
                 <span class="input-group-addon"><i class="fa fa-file-text-o"></i></span> 
 
-                <input type="number" min="0"  class="form-control input-lg" name="nuevaid_text" placeholder="Ingresar Pregunta" >
+                <input type="number" min="0"  class="form-control input-lg" name="nuevaid_test" placeholder="Ingresar Pregunta" >
 
               </div>
 
@@ -311,7 +311,7 @@ MODAL EDITAR TESTACTION
               
                 <span class="input-group-addon"><i class="fa fa-file-text-o"></i></span> 
 
-                <input type="number" min="0"  class="form-control input-lg" name="editarid_text" id="editarid_text" >
+                <input type="number" min="0"  class="form-control input-lg" name="editarid_test" id="editarid_test" >
 
               </div>
 

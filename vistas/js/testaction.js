@@ -24,7 +24,7 @@ $(".tablas").on("click", ".btnEditarTestaction", function(){
  
 	       $("#editarid_evento").val(respuesta["id_evento"]); 
  
-	       $("#editarid_text").val(respuesta["id_text"]); 
+	       $("#editarid_test").val(respuesta["id_test"]); 
  
 	       $("#editarid_test_opcion").val(respuesta["id_test_opcion"]); 
  

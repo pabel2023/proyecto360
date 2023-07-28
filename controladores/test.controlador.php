@@ -163,6 +163,10 @@ class ControladorTest{
 				$tabla ="test";
 				$datos = $_GET["idTest"];
 
+				$respuestaTestaction = ModeloTestaction::mdlMostrarTestaction("Testaction","id_test", $datos);
+
+				if(!$respuestaTestaction){
+
 				$respuesta = ModeloTest::mdlBorrarTest($tabla, $datos);
 
 				if($respuesta == "ok"){
@@ -184,6 +188,25 @@ class ControladorTest{
 
 						</script>';
 				}
+
+			}else{
+
+				echo'<script>
+
+				 swal({
+					 type: "error",
+					 title: "¡No se puede eliminar, asocioado a un pregunta!",
+					 showConfirmButton: true,
+					 confirmButtonText: "Cerrar"
+				   }).then(function(result){
+					 if (result.value) {
+
+						 window.location = "test";
+
+						}
+				   })
+			  </script>';	
+			}
 
 		}
 		

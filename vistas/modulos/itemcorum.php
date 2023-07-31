@@ -19,8 +19,17 @@ if($_SESSION["perfil"] == "Vendedor"){
   <section class="content-header">
     
     <h1>
-      
-    Quórum
+    <?php
+  
+		  
+		  if(isset($_GET["idEventos"])){
+			  $eventos = ControladorEventos::ctrMostrarEventos("id", $_GET["idEventos"]);
+		  echo ($eventos["codigo"].' '.$eventos["nombre"]);
+		  }else{
+		  echo'Quórum';  
+		  }
+		
+?>     
     
     </h1>
 
@@ -39,21 +48,9 @@ if($_SESSION["perfil"] == "Vendedor"){
     <div class="box">
 
       <div class="box-header with-border">
-  
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarItemCorum">
-          
-          Agregar Quórum
+ 
 
-        </button>
-		
-		<button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarItemCorum2">
-          
-          Cargar Quórum
-
-        </button>
-
-      </div>
-	  
+      </div>  
 	 
 
       <div class="box-body">
@@ -97,13 +94,13 @@ if($_SESSION["perfil"] == "Vendedor"){
           $ItemCorum = ControladorItemCorum::ctrMostrarItemCorum($item,$valor);
 
           foreach ($ItemCorum as $key => $value) {
-           
+            $eventos = ControladorEventos::ctrMostrarEventos("id", $value["id_evento"]);
             echo ' <tr>
 
                     <td>'.($key+1).'</td>
 
                     
-                    <td class="text-uppercase">'.$value["id_evento"].'</td>
+                    <td class="text-uppercase">'.$eventos["codigo"].'</td>
                     <td class="text-uppercase">'.$value["nombre"].'</td>
                     <td class="text-uppercase">'.$value["tipo"].'</td>
                     <td class="text-uppercase">'.$value["porcentage"].'</td>
@@ -130,7 +127,7 @@ if($_SESSION["perfil"] == "Vendedor"){
 
                         if($_SESSION["perfil"] == "Administrador"){
 
-                          echo '<button class="btn btn-danger btnEliminarItemCorum" idItemCorum="'.$value["id"].'"><i class="fa fa-times"></i></button>';
+                          echo '<button class="btn btn-danger btnEliminarItemCorum" idEventos="'.$value["id_evento"].'" idItemCorum="'.$value["id"].'"><i class="fa fa-times"></i></button>';
 
                         }
 

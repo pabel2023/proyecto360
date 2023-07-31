@@ -45,6 +45,7 @@ ELIMINAR ITEMCORUM
 $(".tablas").on("click", ".btnEliminarItemCorum", function(){
 
 	var idItemCorum = $(this).attr("idItemCorum");
+	var idEventos = $(this).attr("idEventos");
 	
 	swal({
         title: '¿Estas seguro de borrar el Quorum?',
@@ -57,7 +58,7 @@ $(".tablas").on("click", ".btnEliminarItemCorum", function(){
       }).then(function(result){
         if (result.value) {
           
-            window.location = "index.php?ruta=itemcorum&idItemCorum="+idItemCorum;
+            window.location = "index.php?ruta=itemcorum&idItemCorum="+idItemCorum+"&idEventos="+idEventos;
         }
 
   })

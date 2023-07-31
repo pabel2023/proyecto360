@@ -7,14 +7,16 @@ class ControladorItemCorum{
 	CARGAR ITEMCORUM
 	=============================================*/
 	static public function ctrCargarItemCorum(){
-		if(isset($_FILES["dataCliente"])){
+		if(isset($_FILES["dataCliente"]) && isset($_POST["idEventoCargue"])){
 		
-		$tipo       = $_FILES['dataCliente']['type'];
-		$tamanio    = $_FILES['dataCliente']['size'];
-		$archivotmp = $_FILES['dataCliente']['tmp_name'];
-		$lineas     = file($archivotmp);
+			$tipo       = $_FILES['dataCliente']['type'];
+			$tamanio    = $_FILES['dataCliente']['size'];
+			$archivotmp = $_FILES['dataCliente']['tmp_name'];
+			$lineas     = file($archivotmp);
 		
-		$i = 0;
+			$i = 0;
+			
+			ModeloItemCorum::mdlBorrarItemCorum2("itemcorum",$_POST["idEventoCargue"]);
 
 			foreach ($lineas as $linea) {
 				$cantidad_registros = count($lineas);
@@ -32,7 +34,7 @@ class ControladorItemCorum{
 					   $tabla = "itemcorum";
 
 						$datas = array(
-						"id_evento"=>$datos[0],
+						"id_evento"=>$_POST["idEventoCargue"],
 						"nombre"=>$datos[1],
 						"tipo"=>$datos[2],
 						"porcentage"=>$datos[3],
@@ -48,7 +50,7 @@ class ControladorItemCorum{
 							
 				
 
-						ModeloItemCorum::mdlBorrarItemCorum2($tabla, $datos[0]);
+						
 						$respuesta = ModeloItemCorum::mdlIngresarItemCorum($tabla, $datas);
 				   }
 			}
@@ -210,8 +212,8 @@ class ControladorItemCorum{
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "index.php?ruta=itemcorum&idEventos="'.$_POST["editarid_evento"].';
-
+									
+									window.location = "index.php?ruta=itemcorum&idEventos='.$_POST["editarid_evento"].'";
 									}
 								})
 
@@ -270,7 +272,7 @@ class ControladorItemCorum{
 							  }).then(function(result){
 										if (result.value) {
 
-										window.location = "itemcorum";
+										window.location = "index.php?ruta=itemcorum&idEventos='.$_GET["idEventos"].'";
 
 										}
 									})

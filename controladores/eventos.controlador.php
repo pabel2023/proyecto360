@@ -170,10 +170,10 @@ class ControladorEventos{
 				$tabla ="eventos";
 				$datos = $_GET["idEventos"];
 
-				$respuestaItemCorum = ModeloItemCorum::mdlMostrarItemCorum("itemcorum", "id_evento", $datos);
 				$respuestaTest = ModeloTest::mdlMostrarTest("test", "id_evento", $datos);
+				$respuestaItemCorum = ModeloItemCorum::mdlMostrarItemCorum("itemcorum", "id_evento", $datos);
 
-				if(!$respuestaItemCorum || $respuestaTest){
+				if(!$respuestaTest && !$respuestaItemCorum){
 
 				$respuesta = ModeloEventos::mdlBorrarEventos($tabla, $datos);
 
@@ -203,7 +203,7 @@ class ControladorEventos{
 
 				 swal({
 					 type: "error",
-					 title: "¡No se puede eliminar, asocioado a una asamblea!",
+					 title: "¡No se puede eliminar, asocioado a una pregunta o un quorum!",
 					 showConfirmButton: true,
 					 confirmButtonText: "Cerrar"
 				   }).then(function(result){
@@ -214,7 +214,9 @@ class ControladorEventos{
 						}
 				   })
 			  </script>';	
+
 			}
+
 
 		}
 		

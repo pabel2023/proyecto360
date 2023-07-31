@@ -100,14 +100,11 @@ if($_SESSION["perfil"] == "Vendedor"){
                       <div class="btn-group">
                           
                         <button class="btn btn-warning btnEditarEventos" idEventos="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarEventos"><i class="fa fa-pencil"></i></button>
-						<button class="btn btn-danger btnLlamarItemCorum" idEventos="'.$value["codigo"].'"><i class="fa fa-handshake-o"></i></button>';
-                        if($_SESSION["perfil"] == "Administrador"){
-
-                          echo '<button class="btn btn-danger btnEliminarEventos" idEventos="'.$value["id"].'"><i class="fa fa-times"></i></button>';
-
-                        }
-
-                      echo '</div>  
+						<button class="btn btn-success btnIdCargueItemCorum" idEventos="'.$value["id"].'" data-toggle="modal" data-target="#btnIdCargueItemCorum"><i class="fa fa-file-excel-o"></i></button>
+						<button class="btn btn-info btnLlamarItemCorum"  idEventos="'.$value["id"].'"><i class="fa fa-handshake-o"></i></button>
+                        <button class="btn btn-danger btnEliminarEventos" idEventos="'.$value["id"].'"><i class="fa fa-times"></i></button>
+						
+						</div>  
 
                     </td>
 
@@ -454,8 +451,8 @@ MODAL EDITAR EVENTOS
 MODAL GRAFICO EVENTOS
 ======================================-->
 
-<div id="modalEditarEventos2" class="modal fade" role="dialog">
- <div class="modal-dialog">
+<div id="btnIdCargueItemCorum" class="modal fade" role="dialog">
+   <div class="modal-dialog">
 
     <div class="modal-content">
 
@@ -469,7 +466,7 @@ MODAL GRAFICO EVENTOS
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">xxxxxx</h4>
+          <h4 class="modal-title">Agregar Quórum</h4>
 
         </div>
 		
@@ -485,7 +482,12 @@ MODAL GRAFICO EVENTOS
 		   <div class="col-md-7">
       
         <div class="file-input text-center">
-          
+		 <input type="hidden"  name="idEventoCargue" id="idEventoCargue" required>
+            <input  type="file" name="dataCliente" id="file-input" />
+            <label  for="file-input">
+              <i class="zmdi zmdi-upload zmdi-hc-2x"></i>
+              <span>Elegir Archivo Excel</span></label
+            >
           </div>
       
       
@@ -503,11 +505,16 @@ MODAL GRAFICO EVENTOS
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          
+          <button type="submit" class="btn btn-primary">Subir Excel</button>
 
         </div>
 
-        
+        <?php
+
+          $crearItemCorum = new ControladorItemCorum();
+          $crearItemCorum -> ctrCargarItemCorum();
+
+        ?>
 
       </form>
 
@@ -526,8 +533,4 @@ MODAL GRAFICO EVENTOS
 
 ?>
 
-<div id="modalEditarEventos3">
-		<?php         
-           include "reportes/productos-mas-vendidos.php";
-          ?>
-</div>
+

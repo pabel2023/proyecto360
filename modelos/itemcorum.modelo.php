@@ -16,7 +16,7 @@ class ModeloItemCorum{
 		VALUES (:id_evento,:nombre,:tipo,:porcentage,:documento_titular,:nombre_titular,
 		:apellido_titular,:documento_encargado,:nombre_encargado,:apellido_encargado,:estado)");
 
-		$stmt->bindParam(":id_evento", $datos["id_evento"], PDO::PARAM_STR);
+		$stmt->bindParam(":id_evento", $datos["id_evento"], PDO::PARAM_INT);
 		$stmt->bindParam(":nombre", $datos["nombre"] , PDO::PARAM_STR);
 		$stmt->bindParam(":tipo", $datos["tipo"] , PDO::PARAM_STR);
 		$stmt->bindParam(":porcentage", $datos["porcentage"] , PDO::PARAM_STR);
@@ -109,7 +109,7 @@ class ModeloItemCorum{
 
 		
 		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
-		$stmt->bindParam(":id_evento", $datos["id_evento"], PDO::PARAM_STR);
+		$stmt->bindParam(":id_evento", $datos["id_evento"], PDO::PARAM_INT);
 		$stmt->bindParam(":nombre", $datos["nombre"] , PDO::PARAM_STR);
 		$stmt->bindParam(":tipo", $datos["tipo"] , PDO::PARAM_STR);
 		$stmt->bindParam(":porcentage", $datos["porcentage"] , PDO::PARAM_STR);
@@ -184,7 +184,7 @@ class ModeloItemCorum{
 	}
 
 
-		/*=============================================
+	/*=============================================
 	ACTUALIZAR ItemCorum
 	=============================================*/
 

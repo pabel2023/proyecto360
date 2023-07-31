@@ -95,3 +95,15 @@ $(".tablas").on("click", ".btnLlamarItemCorum", function(){
   })
 
 })
+
+/*=============================================
+LLAMAR MODAL CARGUE
+=============================================*/
+$(".tablas").on("click", ".btnIdCargueItemCorum", function(){
+
+	var idEventoCargue = $(this).attr("idEventos");
+	 $("#idEventoCargue").val(idEventoCargue); 
+
+
+})
+

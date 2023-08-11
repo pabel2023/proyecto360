@@ -283,4 +283,40 @@ class ControladorItemCorum{
 		}
 		
 	}
+	
+	static public function ctrBorrarItemCorum2(){
+
+		if(isset($_POST["idEventoX"])){
+
+				$tabla ="itemcorum";
+				
+
+				$respuesta = ModeloItemCorum::mdlBorrarItemCorum2("itemcorum",$_POST["idEventoX"]);
+				
+
+				if($respuesta == "ok"){
+
+					echo'<script>
+
+						swal({
+							  type: "success",
+							  title: "Quórum ha sido borrada correctamente",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+										if (result.value) {
+
+										window.location = "index.php?ruta=itemcorum&idEventos='.$_GET["idEventos"].'";
+
+										}
+									})
+
+						</script>';
+				}
+
+		}
+		
+	}
+	
+	
 }

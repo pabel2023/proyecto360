@@ -126,3 +126,5 @@ $(".tablas").on("click", ".btnActivar", function(){
   	}
 
 })
+
+

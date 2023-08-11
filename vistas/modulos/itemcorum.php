@@ -25,9 +25,23 @@ if($_SESSION["perfil"] == "Vendedor"){
 		  if(isset($_GET["idEventos"])){
 			  $eventos = ControladorEventos::ctrMostrarEventos("id", $_GET["idEventos"]);
 		  echo ($eventos["codigo"].' '.$eventos["nombre"]);
+		  echo'
+		  <div class="box-header with-border">
+		  <form role="form" method="post">		
+		  <input type="hidden"  name="idEventoX" id="idEventoX" value="'.$eventos["id"].'"  >         
+		  <button class="btn btn-primary" data-toggle="modal" data-target="#modalLimpiar">          
+          Borrar base de datos
+		  </button>		
+		  </form>
+          </div>';		  
+		  
+		  $borrarItemCorum = new ControladorItemCorum();
+		  $borrarItemCorum -> ctrBorrarItemCorum2();
 		  }else{
 		  echo'Quórum';  
 		  }
+		  
+		  
 		
 ?>     
     
@@ -47,11 +61,8 @@ if($_SESSION["perfil"] == "Vendedor"){
 
     <div class="box">
 
-      <div class="box-header with-border">
  
-
-      </div>  
-	 
+	
 
       <div class="box-body">
         
@@ -553,7 +564,7 @@ MODAL EDITAR ITEMCORUM
               
                 <span class="input-group-addon"><i class="fa fa-file-o"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editardocumento_titular" id="editardocumento_titular" >
+                <input type="text" class="form-control input-lg" name="editardocumento_titular" id="editardocumento_titular" placeholder="Ingresar documento titular" >
 
                 
 
@@ -656,6 +667,89 @@ MODAL EDITAR ITEMCORUM
             </div>
           
   
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+
+      <?php
+
+          $editarItemCorum = new ControladorItemCorum();
+          $editarItemCorum -> ctrEditarItemCorum();
+
+        ?> 
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!--=====================================
+MODAL EDITAR ITEMCORUM
+======================================-->
+
+<div id="modalLimpiar" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar Quórum</h4>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+
+            <!-- ENTRADA PARA EL ID_EVENTO -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
+
+                <input type="text"   class="form-control input-lg" name="editarid_evento" id="editarid_evento" readonly  required>
+
+                <input type="hidden"  name="idItemCorum" id="idItemCorum" required>
+
+              </div>
+
+            </div>    
+          
+
+            
           </div>
 
         </div>
